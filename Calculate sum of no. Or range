@@ -1,0 +1,14 @@
+# Define the range
+start = 50
+end = 100
+
+# Calculate the sum of numbers in the range
+total = sum(range(start, end + 1))
+
+# Calculate the count of numbers in the range
+count = end - start + 1
+
+# Calculate the average
+average = total / count
+
+print(f"The average of numbers from {start} to {end} is {average}")
