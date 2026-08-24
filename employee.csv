@@ -1,0 +1,16 @@
+EmployeeID,Name,Age,Gender,Department,Experience,Salary,City,Education,Performance,LeftCompany
+101,Amit,25,Male,IT,2,35000,Pune,BTech,Good,No
+102,Priya,28,Female,HR,4,45000,Mumbai,MBA,Excellent,No
+103,Rahul,35,Male,Finance,8,70000,Nashik,MCom,Average,Yes
+104,Sneha,29,Female,IT,5,52000,Pune,BTech,Good,No
+105,Karan,42,Male,Sales,15,90000,Mumbai,MBA,Excellent,No
+106,Neha,24,Female,IT,1,32000,Nagpur,BCA,Good,No
+107,Rohit,31,Male,Finance,6,60000,Pune,MCom,Average,Yes
+108,Pooja,27,Female,HR,3,43000,Nashik,MBA,Good,No
+109,Vikas,38,Male,Sales,10,80000,Mumbai,MBA,Excellent,No
+110,Anjali,26,Female,IT,2,36000,Pune,BTech,Good,No
+111,Sachin,45,Male,Management,20,120000,Mumbai,MBA,Excellent,No
+112,Riya,23,Female,HR,1,30000,Nashik,BBA,Average,Yes
+113,Ajay,34,Male,IT,7,65000,Pune,BTech,Good,No
+114,Komal,30,Female,Finance,5,55000,Nagpur,MCom,Good,No
+115,Deepak,50,Male,Management,25,150000,Mumbai,MBA,Excellent,No
