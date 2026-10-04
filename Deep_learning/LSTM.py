@@ -2,7 +2,8 @@ from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, LSTM,Dense
+from tensorflow.keras.layers import Embedding, LSTM,Dense,GRU
+
 
 #parameters
 vocab_size = 10000
@@ -18,30 +19,68 @@ x_test = pad_sequences(x_test, maxlen=max_len)
 print(f"Training data shape: {x_train.shape}, Training labels shape: {y_train.shape}")
 print(f"Test data shape: {x_test.shape}, Test labels shape: {y_test.shape}")
 
-#Build the model
-model =Sequential([
-    Embedding(
-        input_dim = vocab_size,
-        output_dim=128
+# #Build the model
+# model =Sequential([
+#     Embedding(
+#         input_dim = vocab_size,
+#         output_dim=128
+#     ),
+#     LSTM(128,activation='tanh',return_sequences=False),
+
+#     Dense(1,activation='sigmoid')
+
+
+# ])
+
+# #compile the model
+# model.compile(
+#     optimizer='adam',
+#     loss = 'binary_crossentropy',
+#     metrics=['accuracy']
+# )
+
+# #display model
+# model.summary()
+
+# history = model.fit(
+#     x_train,
+#     y_train,
+#     epochs=5,
+#     batch_size=32,
+#     validation_split=0.2
+# )
+
+
+# # -----------------------------
+# # 8. Evaluate model
+# # -----------------------------
+# loss, accuracy = model.evaluate(
+#     x_test,
+#     y_test
+# )
+
+# print(f"Test Loss: {loss:.4f}")
+# print(f"Test Accuracy: {accuracy:.4f}")
+
+gru_model = Sequential([
+    Embedding(input_dim=vocab_size, output_dim=128),
+    GRU(
+        128,
+        activation='tanh',
+        return_sequences=False
     ),
-    LSTM(128,activation='tanh',return_sequences=False),
-
-    Dense(1,activation='sigmoid')
-
-
+    Dense(1, activation='sigmoid')
 ])
 
-#compile the model
-model.compile(
+gru_model.compile(
     optimizer='adam',
-    loss = 'binary_crossentropy',
+    loss='binary_crossentropy',
     metrics=['accuracy']
 )
 
-#display model
-model.summary()
+gru_model.summary()
 
-history = model.fit(
+gru_history = gru_model.fit(
     x_train,
     y_train,
     epochs=5,
@@ -49,14 +88,12 @@ history = model.fit(
     validation_split=0.2
 )
 
-
-# -----------------------------
-# 8. Evaluate model
-# -----------------------------
-loss, accuracy = model.evaluate(
+gru_loss, gru_accuracy = gru_model.evaluate(
     x_test,
     y_test
 )
 
-print(f"Test Loss: {loss:.4f}")
-print(f"Test Accuracy: {accuracy:.4f}")
+print(
+    f"GRU Test Loss: {gru_loss:.4f}, "
+    f"Test Accuracy: {gru_accuracy:.4f}"
+)
